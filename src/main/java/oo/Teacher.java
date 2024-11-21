@@ -12,6 +12,12 @@ public class Teacher extends Person {
         this.klasses = new ArrayList<>();
     }
 
+    public Teacher(int id, String name, int age, School school) {
+        super(id, name, age, school);
+        this.klasses = new ArrayList<>();
+        school.addPerson(this);
+    }
+
     public void addKlass(Klass klass) {
         this.klasses.add(klass);
     }

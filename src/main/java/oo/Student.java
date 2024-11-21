@@ -8,6 +8,11 @@ public class Student extends Person {
         super(id, name, age);
     }
 
+    public Student(int id, String name, int age, School school) {
+        super(id, name, age, school);
+        school.addPerson(this);
+    }
+
     public void setKlass(Klass klass) {
         this.klass = klass;
     }
