@@ -1,7 +1,5 @@
 package oo;
 
-import java.util.function.Predicate;
-
 public class Student extends Person {
     private static String STUDENT_INTRODUCTION = " I am a student.";
     private Klass klass;
@@ -10,18 +8,27 @@ public class Student extends Person {
         super(id, name, age);
     }
 
+    public void setKlass(Klass klass) {
+        this.klass = klass;
+    }
+
     @Override
     public String introduce() {
         String introduction = super.introduce() + STUDENT_INTRODUCTION;
         if (klass != null) {
-            String classIntrodction = String.format(" I am in class %d.", klass.getNumber());
+            String classIntrodction = "";
+            if (klass.isLeader(this)) {
+                classIntrodction = String.format(" I am the leader of class %d.", klass.getNumber());
+            } else {
+                classIntrodction = String.format(" I am in class %d.", klass.getNumber());
+            }
             introduction += classIntrodction;
         }
         return introduction;
     }
 
     public void join(Klass klass) {
-        this.klass = klass;
+        klass.attach(this);
     }
 
     public Boolean isIn(Klass klass) {

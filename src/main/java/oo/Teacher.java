@@ -1,8 +1,6 @@
 package oo;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class Teacher extends Person {
@@ -11,40 +9,39 @@ public class Teacher extends Person {
 
     public Teacher(int id, String name, int age) {
         super(id, name, age);
+        this.klasses = new ArrayList<>();
+    }
+
+    public void addKlass(Klass klass) {
+        this.klasses.add(klass);
     }
 
     @Override
     public String introduce() {
         String introduction = super.introduce() + TEACHER_INTRODUCTION;
-        if (klasses != null) {
+        if (klasses.size() > 0) {
             String klassesString = klasses.stream().map(klass -> klass.getNumber().toString()).collect(Collectors.joining(", "));
-            introduction += String.format(" I teach Class %s.",klassesString);
+            introduction += String.format(" I teach Class %s.", klassesString);
         }
         return introduction;
     }
 
     public void assignTo(Klass klass) {
-        if (klass == null) {
-            return;
-        }
-        if (this.klasses == null) {
-            this.klasses = new ArrayList<>();
-        }
-        this.klasses.add(klass);
+        klass.addTeacher(this);
     }
 
     public Boolean belongsTo(Klass klass) {
         if (klass == null) {
             return false;
         }
-        if (this.klasses != null) {
+        if (this.klasses.size() > 0) {
             return this.klasses.contains(klass);
         }
         return false;
     }
 
     public Boolean isTeaching(Student student) {
-        if (student == null || this.klasses == null) {
+        if (student == null || this.klasses.size() > 0) {
             return false;
         }
         return this.klasses.contains(student.getKlass());
