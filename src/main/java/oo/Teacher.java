@@ -25,7 +25,7 @@ public class Teacher extends Person {
     @Override
     public String introduce() {
         String introduction = super.introduce() + TEACHER_INTRODUCTION;
-        if (klasses.size() > 0) {
+        if (!klasses.isEmpty()) {
             String klassesString = klasses.stream().map(klass -> klass.getNumber().toString()).collect(Collectors.joining(", "));
             introduction += String.format(" I teach Class %s.", klassesString);
         }
@@ -40,14 +40,14 @@ public class Teacher extends Person {
         if (klass == null) {
             return false;
         }
-        if (this.klasses.size() > 0) {
+        if (!this.klasses.isEmpty()) {
             return this.klasses.contains(klass);
         }
         return false;
     }
 
     public Boolean isTeaching(Student student) {
-        if (student == null || this.klasses.size() > 0) {
+        if (student == null || this.klasses.isEmpty()) {
             return false;
         }
         return this.klasses.contains(student.getKlass());
