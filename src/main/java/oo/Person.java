@@ -1,5 +1,7 @@
 package oo;
 
+import java.util.Objects;
+
 public class Person {
     private int id;
     private String name;
@@ -24,5 +26,10 @@ public class Person {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
