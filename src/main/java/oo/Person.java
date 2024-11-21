@@ -3,9 +3,9 @@ package oo;
 import java.util.Objects;
 
 public class Person {
-    private int id;
-    private String name;
-    private int age;
+    protected int id;
+    protected String name;
+    protected int age;
 
     public Person(int id, String name, int age) {
         this.id = id;
