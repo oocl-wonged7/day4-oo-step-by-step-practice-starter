@@ -15,4 +15,14 @@ public class Person {
         return ("My name is " + name +  ". I am "+ age+" years old.");
     }
 
+    @Override
+    public boolean equals(Object anotherPerson){
+        if (anotherPerson == null || !(anotherPerson instanceof Person)){
+            return false;
+        }
+        else if (this.id == ((Person) anotherPerson).id){
+            return true;
+        }
+        return false;
+    }
 }
