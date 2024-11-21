@@ -1,5 +1,7 @@
 package oo;
 
+import java.util.function.Predicate;
+
 public class Student extends Person {
     private static String STUDENT_INTRODUCTION = " I am a student.";
     private Klass klass;
@@ -27,5 +29,9 @@ public class Student extends Person {
             return false;
         }
         return this.klass.equals(klass);
+    }
+
+    public Klass getKlass() {
+        return this.klass;
     }
 }
