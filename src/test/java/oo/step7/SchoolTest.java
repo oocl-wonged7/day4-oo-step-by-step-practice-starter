@@ -34,10 +34,10 @@ public class SchoolTest {
 
         school.startSchool();
 
-        String expectedOutput = "My name is Alice. I am 30 years old. I am a teacher." +
-                "My name is Bob. I am 40 years old. I am a teacher." +
-                "My name is Charlie. I am 18 years old. I am a student." +
-                "My name is David. I am 19 years old. I am a student.";
+        String expectedOutput = "My name is Alice. I am 30 years old. I am a teacher.\r\n" +
+                "My name is Bob. I am 40 years old. I am a teacher.\r\n" +
+                "My name is Charlie. I am 18 years old. I am a student.\r\n" +
+                "My name is David. I am 19 years old. I am a student.\r\n";
         assertThat(systemOut()).isEqualTo(expectedOutput);
     }
 
@@ -49,8 +49,8 @@ public class SchoolTest {
 
         school.startSchool();
 
-        String expectedOutput = "My name is Alice. I am 30 years old. I am a teacher." +
-                "My name is Bob. I am 40 years old. I am a teacher.";
+        String expectedOutput = "My name is Alice. I am 30 years old. I am a teacher.\r\n" +
+                "My name is Bob. I am 40 years old. I am a teacher.\r\n";
         assertThat(systemOut()).isEqualTo(expectedOutput);
     }
 
@@ -62,8 +62,8 @@ public class SchoolTest {
 
         school.startSchool();
 
-        String expectedOutput = "My name is Charlie. I am 18 years old. I am a student." +
-                "My name is David. I am 19 years old. I am a student.";
+        String expectedOutput = "My name is Charlie. I am 18 years old. I am a student.\r\n" +
+                "My name is David. I am 19 years old. I am a student.\r\n";
         assertThat(systemOut()).isEqualTo(expectedOutput);
     }
 

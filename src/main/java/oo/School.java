@@ -14,6 +14,6 @@ public class School {
     }
 
     public void startSchool() {
-        this.persons.forEach(person -> System.out.print(person.introduce()));
+        this.persons.forEach(person -> System.out.println(person.introduce()));
     }
 }
